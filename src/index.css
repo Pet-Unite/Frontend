@@ -1,0 +1,107 @@
+
+
+:root {
+  --Fondo: #f6f6f6;
+
+  --Principal: #dafffb;
+  --Principal-Hover: #64ccc5;
+
+  --Error: #ff595e;
+  --Modal: #263955;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--Fondo);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+  font-size: 26px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 22px;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
+}
+
+p,
+b,
+em {
+  font-family: 'Alice', serif;
+  font-size: 17px;
+  color: #000000;
+}
+label {
+  font-size: 16px;
+  font-family: 'Alice', serif;
+  color: #000000;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-family: 'Alice', serif;
+  font-size: 18px;
+}
+::placeholder {
+  color: #8e98a2;
+}
+
+input,
+textarea,
+button,
+select {
+  font-family: 'Alice', serif;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 17px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
