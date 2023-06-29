@@ -5,19 +5,19 @@ import AnimalPage from "./pages/AnimalPage";
 import IngresoPage from "./pages/IngresoPage";
 import Favoritos from "./pages/FavoritosPage";
 import ConfiguracionPage from "./pages/ConfiguracionPage";
-import Navegacion from "./layout/Navegacion/Navegacion";
+import BuscadorSuperior from "./layout/Navegacion/BuscadorSuperior";
 
 const App = () => {
   return (
     <>
       <BrowserRouter basename="/">
-        <Navegacion />
+        <BuscadorSuperior />
         <Routes>
           <Route path="/" element={<InicioPage />} />
-          <Route path="/Panda" element={<AnimalPage />} />
-          <Route path="/configuracion" element={<ConfiguracionPage />} />
+          <Route path="/:id" element={<AnimalPage />} />
           <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/ingresar" element={<IngresoPage />} />
+          <Route path="/configuracion" element={<ConfiguracionPage />} />
         </Routes>
       </BrowserRouter>
     </>
