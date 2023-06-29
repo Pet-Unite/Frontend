@@ -16,18 +16,7 @@ const Main = styled.ul`
 const MapDeTarjetas = () => {
   const { buscarPorNombre } = useContext(NombreDelAnimalContext);
 
-  const Mascotas = [
-    {
-      id: "",
-      raza: "",
-      src: "/pajaros/",
-      longevidad: "",
-      origen: "",
-      tamaño: "",
-      historia: "",
-      like: 0,
-    },
-  ];
+  const Mascotas = []
 
   const filtroDeMascotas = Mascotas.filter((item) =>
     item.raza.toLowerCase().startsWith(buscarPorNombre.toLowerCase())
