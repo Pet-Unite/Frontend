@@ -1,9 +1,11 @@
-
+import Login from "../components/usuario/iniciar-sesion/Login";
 
 const IngresoPage = () => {
   return (
-    <div>IngresoPage</div>
-  )
-}
+    <>
+      <Login />
+    </>
+  );
+};
 
-export default IngresoPage
+export default IngresoPage;

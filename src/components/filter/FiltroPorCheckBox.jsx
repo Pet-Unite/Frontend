@@ -17,7 +17,7 @@ const FiltroPorCheckBox = () => {
     const value = e.target.value;
     setRadioCheck(value);
   };
-  console.log(radioCheck)
+  console.log(radioCheck);
   return (
     <>
       <Box>

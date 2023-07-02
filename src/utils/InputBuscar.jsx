@@ -5,18 +5,20 @@ const Label = styled.label`
   align-items: center;
   width: 100%;
   max-width: 580px;
-  height: 40px;
+  height: 35px;
 `;
 const Input = styled.input`
   padding: 0 4px 0 18px;
   border: 1px solid var(--Principal);
   border-radius: 30px 0 0 30px;
-  color: #333;
+  color: #ffffff;
   width: 100%;
   height: 100%;
+  font-size: 16px;
+  background-color: var(--Principal);
   &:focus {
     outline: none;
-    border-color: var(--Principal-Hover);
+    border-color: var(--Secundario);
   }
 `;
 const Icono = styled.div`

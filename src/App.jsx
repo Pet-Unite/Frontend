@@ -6,6 +6,7 @@ import IngresoPage from "./pages/IngresoPage";
 import Favoritos from "./pages/FavoritosPage";
 import ConfiguracionPage from "./pages/ConfiguracionPage";
 import BuscadorSuperior from "./layout/Navegacion/BuscadorSuperior";
+import RegistrarsePage from "./pages/RegistrarsePage";
 
 const App = () => {
   return (
@@ -16,8 +17,9 @@ const App = () => {
           <Route path="/" element={<InicioPage />} />
           <Route path="/:id" element={<AnimalPage />} />
           <Route path="/favoritos" element={<Favoritos />} />
-          <Route path="/ingresar" element={<IngresoPage />} />
           <Route path="/configuracion" element={<ConfiguracionPage />} />
+          <Route path="/ingresar" element={<IngresoPage />} />
+          <Route path="/registrarse" element={<RegistrarsePage />} />
         </Routes>
       </BrowserRouter>
     </>

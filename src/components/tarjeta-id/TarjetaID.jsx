@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const Main = styled.section`
@@ -32,6 +33,7 @@ const Imagen = styled.div`
   width: 100%;
   aspect-ratio: 10/9;
   border-radius: 5px;
+  border: 1px solid white;
   img {
     object-fit: cover;
     height: 100%;
@@ -57,9 +59,31 @@ const Historia = styled.div`
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 25px 0;
+  padding: 40px 0;
+`;
+const DivMegusta = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  user-select: none;
+  margin-left: auto;
+  padding: 5px;
+`;
+const Icono = styled.div`
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 `;
 const TarjetaID = () => {
+  const [toggleCorazon, setToggleCorazon] = useState(false);
+
+  const corazonActivo = () => setToggleCorazon(true);
+  const corazonInactivo = () => setToggleCorazon(false);
   return (
     <>
       <Main>
@@ -68,6 +92,18 @@ const TarjetaID = () => {
           <Imagen>
             <img src="2" alt="Animal" />
           </Imagen>
+          <DivMegusta>
+            <p> 293</p>
+            {toggleCorazon ? (
+              <Icono onClick={corazonInactivo}>
+                <img src="/icons/CorazonActivo.svg" alt="" />
+              </Icono>
+            ) : (
+              <Icono onClick={corazonActivo}>
+                <img src="/icons/CorazonInactivo.svg" alt="" />
+              </Icono>
+            )}
+          </DivMegusta>
           <Data_Box>
             <Data>
               <b>Promedio de vida</b>
