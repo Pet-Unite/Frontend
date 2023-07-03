@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import TarjetaID from "../components/tarjeta-id/TarjetaID";
-import Comentarios from "../components/comentarios/comentarios";
+import Comentarios from "../components/comentarios/Comentarios";
 
 const Main = styled.div`
   display: flex;

@@ -18,27 +18,22 @@ const MapDeTarjetas = ({ valueRadio }) => {
   const { buscarPorNombre } = useContext(NombreDelAnimalContext);
   const [getData, setGetData] = useState([]);
 
-  // useEffect(() => {
-  //   if (valueRadio) {
-  //     axios
-  //       .get(valueRadio)
-  //       .then((response) => {
-  //         setGetData(response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error:", error);
-  //       });
-  //   }
-  // }, [valueRadio]);
-
-  const filtroDeMascotas = getData.filter((item) =>
-    item.raza.toLowerCase().startsWith(buscarPorNombre.toLowerCase())
-  );
+  useEffect(() => {
+    axios
+      .get(valueRadio)
+      .then((response) => {
+        setGetData(response.data.mascotas);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [valueRadio]);
 
   return (
     <>
       <Main>
-        {filtroDeMascotas.map((item, key) => (
+        {getData.map((item, key) => (
           <li key={key}>
             <Tarjeta raza={item.raza} src={item.src} like={item.like} />
           </li>

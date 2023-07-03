@@ -9,52 +9,52 @@ const Box = styled.div`
 `;
 
 const FiltroPorCheckBox = ({ valueRadio, onChangeValueRadio }) => {
-  // En los value de cada Input agregar la url
-  // Se usara para llamar al cambiar de opcion en el componente
-  // MapDeTarjetas.jsx
+
+
+  
 
   return (
     <>
       <Box>
         <InputRadio
           htmlForTodo="Todo"
-          value="https://picsum.photos/200"
+          value="http://localhost:8000/mascotas/"
           texto="Todo"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "https://picsum.photos/200"}
+          checked={valueRadio === "http://localhost:8000/mascotas/"}
         />
         <InputRadio
           htmlFor="Perro"
-          value="Perro"
+          value="http://localhost:8000/mascotas/perros"
           texto="Perros"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "Perro"}
+          checked={valueRadio === "http://localhost:8000/mascotas/perros"}
         />
         <InputRadio
           htmlFor="Gato"
-          value="Gato"
+          value="http://localhost:8000/mascotas/gatos"
           texto="Gatos"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "Gato"}
+          checked={valueRadio === "http://localhost:8000/mascotas/gatos"}
         />
         <InputRadio
           htmlFor="Roedor"
-          value="Roedor"
+          value="http://localhost:8000/mascotas/roedor"
           texto="Roedores"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "Roedor"}
+          checked={valueRadio === "http://localhost:8000/mascotas/roedor"}
         />
         <InputRadio
           htmlFor="Pajaro"
-          value="Pajaro"
+          value="http://localhost:8000/mascotas/pajaro"
           texto="Pajaros"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "Pajaro"}
+          checked={valueRadio === "http://localhost:8000/mascotas/pajaro"}
         />
       </Box>
     </>
