@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Tarjeta from "./Tarjeta";
 import { NombreDelAnimalContext } from "../../context/BuscarPorNombre";
@@ -13,16 +14,26 @@ const Main = styled.ul`
   grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `;
-const MapDeTarjetas = () => {
+const MapDeTarjetas = ({ valueRadio }) => {
   const { buscarPorNombre } = useContext(NombreDelAnimalContext);
+  const [getData, setGetData] = useState([]);
 
-  const Mascotas = []
+  // useEffect(() => {
+  //   if (valueRadio) {
+  //     axios
+  //       .get(valueRadio)
+  //       .then((response) => {
+  //         setGetData(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //       });
+  //   }
+  // }, [valueRadio]);
 
-  const filtroDeMascotas = Mascotas.filter((item) =>
+  const filtroDeMascotas = getData.filter((item) =>
     item.raza.toLowerCase().startsWith(buscarPorNombre.toLowerCase())
   );
-
-  console.log(buscarPorNombre);
 
   return (
     <>

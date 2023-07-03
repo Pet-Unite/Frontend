@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 import FiltroPorCheckBox from "../components/filter/FiltroPorCheckBox";
 import MapDeTarjetas from "../components/tarjetas/MapDeTarjetas";
@@ -14,11 +15,17 @@ const Main = styled.section`
 `;
 
 const InicioPage = () => {
+  const [valueRadio, setValueRadio] = useState("https://picsum.photos/200");
+  const onChangeValueRadio = (e) => setValueRadio(e.target.value);
+
   return (
     <>
       <Main>
-        <FiltroPorCheckBox />
-        <MapDeTarjetas />
+        <FiltroPorCheckBox
+          valueRadio={valueRadio}
+          onChangeValueRadio={onChangeValueRadio}
+        />
+        <MapDeTarjetas valueRadio={valueRadio} />
       </Main>
     </>
   );

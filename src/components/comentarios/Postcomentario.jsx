@@ -2,22 +2,21 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Box = styled.form`
-  display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
   width: 100%;
+  max-width: 750px;
   margin: auto;
   gap: 0 15px;
 `;
 
 const Imagen = styled.div`
   display: flex;
-  height: 60px;
-  width: 60px;
+  min-height: 60px;
+  min-width: 60px;
+  max-width: 60px;
   justify-content: center;
   align-items: center;
   border: 1px solid #ffffff54;
-
   border-radius: 50%;
   margin: 0 auto auto auto;
   position: relative;
@@ -35,25 +34,38 @@ const Imagen = styled.div`
 
 const TextArea = styled.textarea`
   resize: none;
-  border-bottom: 2px solid var(--Principal-Cromatico);
+  background-color: var(--Principal-Cromatico);
   width: 100%;
+  max-width: 650px;
   margin: auto;
   padding: 0.5rem;
   min-height: 20px;
   overflow: hidden;
   transition: height 0.2s;
-  background-color: transparent;
-
+  border: 1px solid transparent;
+  border-radius: 1px;
   :focus {
     border-color: var(--Secundario);
   }
 `;
+const Box_Text_Btn = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: max-content;
+  margin-top: 11.5px;
+`;
 const Button = styled.button`
-  margin: auto auto 20px auto;
-
-  border: 1px solid var(--Secundario);
-  padding: 5px 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
   border-radius: 3px;
+  cursor: pointer;
+  margin-top: auto;
 `;
 
 const Postcomentario = () => {
@@ -73,17 +85,19 @@ const Postcomentario = () => {
         <Imagen>
           <img src="/icons/UsuarioDefault.svg" alt="" draggable={false} />
         </Imagen>
-        <TextArea
-          name=""
-          id=""
-          cols="1"
-          rows="1"
-          value={texto}
-          onChange={onChangeTextArea}
-          required
-        ></TextArea>
+        <Box_Text_Btn>
+          <TextArea
+            name=""
+            id=""
+            cols="1"
+            rows="1"
+            value={texto}
+            onChange={onChangeTextArea}
+            required
+          ></TextArea>
 
-        {false && <Button type="submit">Comentar</Button>}
+          {true && <Button type="submit">Comentar</Button>}
+        </Box_Text_Btn>
       </Box>
     </>
   );

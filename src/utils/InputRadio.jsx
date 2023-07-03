@@ -6,7 +6,7 @@ const Label = styled.label`
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100px;
+  width: max-content;
   overflow: hidden;
   border-radius: 3px;
   padding: 6px 8px;
@@ -20,7 +20,7 @@ const Input = styled.input`
   width: 100px;
   overflow: hidden;
   border-radius: 3px;
-  padding: 6px 8px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,17 +51,18 @@ const Input = styled.input`
   }
 `;
 
-const InputRadio = ({ name, children, onChange }) => {
+const InputRadio = ({ htmlFor, value, texto, name, onChange, checked }) => {
   return (
     <>
-      <Label htmlFor={children}>
+      <Label htmlFor={htmlFor}>
         <Input
-          id={children}
-          value={children}
           type="radio"
+          id={htmlFor}
+          value={value}
           name={name}
+          texto={texto}
           onChange={onChange}
-          texto={children}
+          checked={checked}
         />
       </Label>
     </>
