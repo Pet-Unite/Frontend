@@ -108,6 +108,11 @@ button {
   cursor: pointer;
 }
 
+option[value=""] , select[value="Seleccionar"] {
+  color: grey;
+  font-style: italic;
+}
+
 /* Boton Google */
 
 .GoogleBtn {
