@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Main = styled.div`
@@ -45,16 +46,19 @@ const Icono = styled.div`
   }
 `;
 
-const Tarjeta = ({ raza, src, like }) => {
+const Tarjeta = ({ raza, src, like, id }) => {
+  const navigate = useNavigate();
   const [toggleCorazon, setToggleCorazon] = useState(false);
 
   const corazonActivo = () => setToggleCorazon(true);
   const corazonInactivo = () => setToggleCorazon(false);
 
+  const redirigirConID = () => navigate(`/mascotas/${id}`);
+
   return (
     <>
       <Main>
-        <Imagen>
+        <Imagen onClick={redirigirConID}>
           <img src={src} alt="" draggable={false} />
         </Imagen>
 

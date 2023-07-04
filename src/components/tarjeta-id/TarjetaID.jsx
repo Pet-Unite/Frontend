@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import styled from "styled-components";
 
 const Main = styled.section`
@@ -31,9 +32,9 @@ const Nombre = styled.b`
 `;
 const Imagen = styled.div`
   width: 100%;
+  height: 270px;
   aspect-ratio: 10/9;
   border-radius: 5px;
-  border: 1px solid white;
   img {
     object-fit: cover;
     height: 100%;
@@ -79,57 +80,52 @@ const Icono = styled.div`
     width: 100%;
   }
 `;
-const TarjetaID = () => {
+const TarjetaID = ({data}) => {
   const [toggleCorazon, setToggleCorazon] = useState(false);
 
   const corazonActivo = () => setToggleCorazon(true);
   const corazonInactivo = () => setToggleCorazon(false);
+
   return (
     <>
-      <Main>
-        <Box>
-          <Nombre>Nombre</Nombre>
-          <Imagen>
-            <img src="2" alt="Animal" />
-          </Imagen>
-          <DivMegusta>
-            <p> 293</p>
-            {toggleCorazon ? (
-              <Icono onClick={corazonInactivo}>
-                <img src="/icons/CorazonActivo.svg" alt="" />
-              </Icono>
-            ) : (
-              <Icono onClick={corazonActivo}>
-                <img src="/icons/CorazonInactivo.svg" alt="" />
-              </Icono>
-            )}
-          </DivMegusta>
-          <Data_Box>
-            <Data>
-              <b>Promedio de vida</b>
-              <p>10 a 15 años</p>
-            </Data>
-            <Data>
-              <b>Tamaño</b>
-              <p>Pequeño</p>
-            </Data>
-            <Data>
-              <b>Origen</b>
-              <p>Australia </p>
-            </Data>
-          </Data_Box>
-        </Box>
-        <Historia>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            commodi, deleniti corrupti enim modi nisi suscipit id minima laborum
-            nostrum omnis possimus nemo culpa pariatur, tenetur perferendis
-            dolor blanditiis. Id quasi ipsam corrupti aut saepe natus obcaecati
-            vero eius, sequi tempora maiores eveniet dolor officia facere
-            reprehenderit mollitia dolore distinctio?
-          </p>
-        </Historia>
-      </Main>
+        <Main>
+          <Box>
+            <Nombre>{data.raza}</Nombre>
+            <Imagen>
+              <img src={data.src} alt="Animal" />
+            </Imagen>
+            <DivMegusta>
+              <p>{data.like}</p>
+              {toggleCorazon ? (
+                <Icono onClick={corazonInactivo}>
+                  <img src="/icons/CorazonActivo.svg" alt="" />
+                </Icono>
+              ) : (
+                <Icono onClick={corazonActivo}>
+                  <img src="/icons/CorazonInactivo.svg" alt="" />
+                </Icono>
+              )}
+            </DivMegusta>
+            <Data_Box>
+              <Data>
+                <b>Promedio de vida</b>
+                <p>{data.longevidad}</p>
+              </Data>
+              <Data>
+                <b>Tamaño</b>
+                <p>{data.tamaño}</p>
+              </Data>
+              <Data>
+                <b>Origen</b>
+                <p>{data.origen} </p>
+              </Data>
+            </Data_Box>
+          </Box>
+          <Historia>
+            <p>{data.historia}</p>
+          </Historia>
+        </Main>
+    
     </>
   );
 };

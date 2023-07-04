@@ -1,10 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import styled from "styled-components";
 
 import Filtro from "../../components/filter/Filtro";
-import Rutas from "../../components/Rutas/Rutas";
 
 const Nav = styled.nav`
   display: flex;
@@ -21,42 +18,69 @@ const Box = styled.div`
   z-index: 6;
   background-color: #151515;
 `;
-const Box_Rutas = styled.div`
+const Box_Logo_Buscar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+`;
+const Logo = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  p {
+    font-size: 18px;
+  }
   img {
+    height: 45px;
+    width: 45px;
     object-fit: cover;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
+    border-radius: 50%;
   }
 `;
 const Btn = styled.button`
-  padding: 5px 15px;
-  border-radius: 20px;
-  border: 1px solid white;
+  padding: 6px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+`;
+const Box_Router_Btn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
 `;
 
 const BuscadorSuperior = () => {
   const navigate = useNavigate();
   const routeIngresar = () => navigate("/ingresar");
 
-  const [navegacionMovil, setNavegacionMovil] = useState(false);
-
-  const desplegarNavegacionMovil = () => setNavegacionMovil(!navegacionMovil);
-
   return (
     <>
       <Nav>
         <Box>
-          <Box_Rutas onClick={desplegarNavegacionMovil}>
-            <img src="/icons/Nav.svg" alt="" />
-          </Box_Rutas>
-          <Filtro />
+          <Box_Logo_Buscar>
+            <Logo href="/">
+              <img src="/Logo.jfif" alt="" />
+              <p>Pet unite</p>
+            </Logo>
+            <Filtro />
+          </Box_Logo_Buscar>
 
-          <Btn type="button" onClick={routeIngresar}>
-            Ingresar
-          </Btn>
+          <Box_Router_Btn>
+            <a href="/">Inicio</a>
+            <a href="/agregar-mascota">Añadir</a>
+            <Btn type="button" onClick={routeIngresar}>
+              Ingresar
+            </Btn>
+          </Box_Router_Btn>
         </Box>
-        <AnimatePresence>{navegacionMovil && <Rutas />}</AnimatePresence>
       </Nav>
     </>
   );

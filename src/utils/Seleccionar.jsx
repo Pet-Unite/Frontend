@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Box = styled.select`
-   display: flex;
+  display: flex;
   align-items: center;
   width: 100%;
   max-width: 100px;
@@ -9,7 +9,7 @@ const Box = styled.select`
   border-radius: 2px;
   height: 35px;
   border: 1px solid var(--Principal);
-padding: 0 7px;
+  padding: 0 7px;
 `;
 
 const Seleccionar = () => {

@@ -4,7 +4,7 @@ const Label = styled.label`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 580px;
+  max-width: 500px;
   height: 35px;
 `;
 const Input = styled.input`

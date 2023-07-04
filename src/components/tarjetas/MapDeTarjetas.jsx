@@ -30,12 +30,18 @@ const MapDeTarjetas = ({ valueRadio }) => {
       });
   }, [valueRadio]);
 
+
   return (
     <>
       <Main>
         {getData.map((item, key) => (
           <li key={key}>
-            <Tarjeta raza={item.raza} src={item.src} like={item.like} />
+            <Tarjeta
+              raza={item.raza}
+              src={item.src}
+              like={item.like}
+              id={item._id}
+            />
           </li>
         ))}
       </Main>
