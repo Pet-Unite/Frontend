@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import Filtro from "../../components/filter/Filtro";
+import UsuarioLogin from "./UsuarioLogin";
 
 const Nav = styled.nav`
   display: flex;
@@ -55,6 +56,10 @@ const Box_Router_Btn = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 25px;
+
+  a {
+    font-size: 17.5px;
+  }
 `;
 
 const BuscadorSuperior = () => {
@@ -75,10 +80,16 @@ const BuscadorSuperior = () => {
 
           <Box_Router_Btn>
             <a href="/">Inicio</a>
+
             <a href="/agregar-mascota">Añadir</a>
-            <Btn type="button" onClick={routeIngresar}>
-              Ingresar
-            </Btn>
+            
+            {false ? (
+              <Btn type="button" onClick={routeIngresar}>
+                Ingresar
+              </Btn>
+            ) : (
+              <UsuarioLogin />
+            )}
           </Box_Router_Btn>
         </Box>
       </Nav>

@@ -9,10 +9,6 @@ const Box = styled.div`
 `;
 
 const FiltroPorCheckBox = ({ valueRadio, onChangeValueRadio }) => {
-
-
-  
-
   return (
     <>
       <Box>
@@ -26,19 +22,19 @@ const FiltroPorCheckBox = ({ valueRadio, onChangeValueRadio }) => {
         />
         <InputRadio
           htmlFor="Perro"
-          value="http://localhost:8000/mascotas/perros"
+          value="http://localhost:8000/mascotas/perro"
           texto="Perros"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/perros"}
+          checked={valueRadio === "http://localhost:8000/mascotas/perro"}
         />
         <InputRadio
           htmlFor="Gato"
-          value="http://localhost:8000/mascotas/gatos"
+          value="http://localhost:8000/mascotas/gato"
           texto="Gatos"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/gatos"}
+          checked={valueRadio === "http://localhost:8000/mascotas/gato"}
         />
         <InputRadio
           htmlFor="Roedor"
