@@ -20,7 +20,7 @@ const AnimalPage = () => {
   const id = useParams();
 
   useEffect(() => {
-    let urlConID = `http://localhost:8000/mascota/${id.id}`;
+    let urlConID = `http://localhost:8000/mascotas/${id.id}`;
     axios
       .get(urlConID)
       .then((response) => {
@@ -35,8 +35,8 @@ const AnimalPage = () => {
     <>
       {getData && getData.results && (
         <Main>
-          <TarjetaID data={getData.results}/>
-          <Comentarios data={getData.results}/>
+          <TarjetaID data={getData.results} />
+          <Comentarios data={getData.results} />
         </Main>
       )}
     </>
