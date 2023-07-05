@@ -50,37 +50,21 @@ const PostMascota = () => {
   // Axios
   const AgregarMascota = async (e) => {
     e.preventDefault();
+    const mascota = {
+      raza: nombre,
+      tipo: tipo,
+      tamaño: tamaño,
+      longevidad: longevidad,
+      origen: origen,
+      historia: historia,
+      src: src,
+    };
 
     try {
-      const response = await axios.post(
-        "http://localhost:8000/mascotas",
-        {
-          tipo: tipo,
-          raza: nombre,
-          src: src,
-          longevidad: longevidad,
-          tamaño: tamaño,
-          origen: origen,
-          historia: historia,
-        },
-        { withCredentials: true }
-      );
-
-      // Aquí puedes manejar la respuesta si lo deseas
-      console.table({
-        tipo,
-        src,
-        nombre,
-        origen,
-        longevidad,
-        historia,
-        tamaño,
-      });
-      console.log("Respuesta del servidor:", response.data);
-      alert("Mascota agregada!");
-    } catch (err) {
-      alert("La mascota no se pudo agregar");
-      console.error("Error al enviar la mascota:", err);
+      const response = axios.post("http://localhost:8000/mascotas/", mascota);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
     }
   };
 
