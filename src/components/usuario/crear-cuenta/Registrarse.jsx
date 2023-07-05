@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Texto from "../Texto";
 import Contraseña from "../Contraseña";
@@ -33,7 +35,19 @@ const Form_Box = styled.div`
   height: 100%;
 `;
 const Registrarse = () => {
-  const onSubmitIniciarSesion = (e) => e.preventDefault();
+  const [nombre, setNombre] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [contraseña, setContraseña] = useState("");
+
+  const onChangeNombre = (e) => setNombre(e.target.value);
+  const onChangeCorreo = (e) => setCorreo(e.target.value);
+  const onChangeContraseña = (e) => setContraseña(e.target.value);
+
+  const onSubmitCrearCuenta = (e) => {
+    e.preventDefault();
+
+
+  }
 
   return (
     <>
@@ -46,26 +60,26 @@ const Registrarse = () => {
           textoLink="¿Ya tienes una cuenta? "
           textoA="¡Ingresa!"
         />
-        <Form onSubmit={onSubmitIniciarSesion}>
+        <Form onSubmit={onSubmitCrearCuenta}>
           <Form_Box>
             <h1>Crear cuenta</h1>
             <Texto
+              htmlFor="Nombre de usuario"
+              placeHolder="example@example.com"
+              value={nombre}
+              onChange={onChangeNombre}
+            />
+            <Texto
               htmlFor="Email"
               placeHolder="example@example.com"
-              value=""
-              onChange=""
+              value={correo}
+              onChange={onChangeCorreo}
             />
             <Contraseña
               htmlFor="Contraseña"
               placeHolder="● ● ● ● ● ● ● ●"
-              value=""
-              onChange=""
-            />
-            <Contraseña
-              htmlFor="Contraseña"
-              placeHolder="● ● ● ● ● ● ● ●"
-              value=""
-              onChange=""
+              value={contraseña}
+              onChange={onChangeContraseña}
             />
 
             <Check>Terminos y condiciones</Check>

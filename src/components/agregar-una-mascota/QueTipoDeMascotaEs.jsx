@@ -11,7 +11,7 @@ const Select = styled.select`
 
   padding: 5px 10px;
   background-color: var(--Principal);
-  color: ${(props) => (props.styledColor === undefined ? "grey" : "#ddd")};
+  color: ${(props) => (props.styledColor === "" ? "grey" : "#ddd")};
 `;
 const Option = styled.option`
   color: white;

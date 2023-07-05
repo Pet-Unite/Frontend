@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Boton from "./Boton";
 import QueTipoDeMascotaEs from "./QueTipoDeMascotaEs";
@@ -33,24 +34,54 @@ const Informacion_General = styled.div`
 `;
 
 const PostMascota = () => {
-  const [nombre, setNombre] = useState();
-  const [src, setSrc] = useState();
-  const [tipo, setTipo] = useState();
-  const [tamaño, setTamaño] = useState();
-  const [longevidad, setLongevidad] = useState();
-  const [origen, setOrigen] = useState();
-  const [historia, setHistoria] = useState();
+  const [nombre, setNombre] = useState("");
+  const [src, setSrc] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [tamaño, setTamaño] = useState("");
+  const [longevidad, setLongevidad] = useState("");
+  const [origen, setOrigen] = useState("");
+  const [historia, setHistoria] = useState("");
 
   const onChangeNombre = (e) => setNombre(e.target.value);
   const onChangeTipo = (e) => setTipo(e.target.value);
   const onChangeTamaño = (e) => setTamaño(e.target.value);
   const onChangeOrigen = (e) => setOrigen(e.target.value);
 
-  console.table({ tipo, src, nombre, origen, longevidad, historia, tamaño });
-
   // Axios
-  const AgregarMascota = (e) => {
+  const AgregarMascota = async (e) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/mascotas",
+        {
+          tipo: tipo,
+          raza: nombre,
+          src: src,
+          longevidad: longevidad,
+          tamaño: tamaño,
+          origen: origen,
+          historia: historia,
+        },
+        { withCredentials: true }
+      );
+
+      // Aquí puedes manejar la respuesta si lo deseas
+      console.table({
+        tipo,
+        src,
+        nombre,
+        origen,
+        longevidad,
+        historia,
+        tamaño,
+      });
+      console.log("Respuesta del servidor:", response.data);
+      alert("Mascota agregada!");
+    } catch (err) {
+      alert("La mascota no se pudo agregar");
+      console.error("Error al enviar la mascota:", err);
+    }
   };
 
   return (

@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import { useState, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import styled from "styled-components";
+
+import { UsuarioLoginContext } from '../../context/DatosUsuario.jsx'
 
 const Usuario = styled.div`
   display: flex;
@@ -21,7 +23,7 @@ const Nombre = styled.p`
   width: max-content;
 `;
 const Correo = styled.p`
-  font-size: 15px;
+  font-size: 13px;
   width: max-content;
   color: grey;
 `;
@@ -69,6 +71,7 @@ const variants = {
 };
 
 const UsuarioLogin = () => {
+  const { imagenUsuario, correoUsuario, nombreUsuario } = useContext(UsuarioLoginContext);
   const [desplegarMenu, setDesplegarMenu] = useState(false);
 
   const toggleMenu = () => setDesplegarMenu(!desplegarMenu);
@@ -76,11 +79,11 @@ const UsuarioLogin = () => {
     <>
       <Usuario>
         <Data>
-          <Nombre>Administrador</Nombre>
-          <Correo>admin@hotmail.com</Correo>
+          <Nombre>{nombreUsuario}</Nombre>
+          <Correo>{correoUsuario}</Correo>
         </Data>
         <Imagen onClick={toggleMenu}>
-          <img src="" alt="" />
+          <img src={imagenUsuario} alt="" />
         </Imagen>
       </Usuario>
 
