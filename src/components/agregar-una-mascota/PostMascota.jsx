@@ -53,14 +53,13 @@ const PostMascota = () => {
   const AgregarMascota = (e) => {
     e.preventDefault();
     const mascota = {
-      nombre: nombre,
+      raza: nombre,
       tipo: tipo,
       tamaño: tamaño,
       longevidad: longevidad,
       origen: origen,
       historia: historia,
       src: src,
-      raza: "agregar raza",
     };
 
     try {
