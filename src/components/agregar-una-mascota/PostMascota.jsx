@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Boton from "./Boton";
 import QueTipoDeMascotaEs from "./QueTipoDeMascotaEs";
@@ -51,6 +52,23 @@ const PostMascota = () => {
   // Axios
   const AgregarMascota = (e) => {
     e.preventDefault();
+    const mascota = {
+      nombre: nombre,
+      tipo: tipo,
+      tamaño: tamaño,
+      longevidad: longevidad,
+      origen: origen,
+      historia: historia,
+      src: src,
+      raza: "agregar raza",
+    };
+
+    try {
+      const response = axios.post("http://localhost:8000/mascotas/", mascota);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
