@@ -9,48 +9,56 @@ const Box = styled.div`
 `;
 
 const FiltroPorCheckBox = ({ valueRadio, onChangeValueRadio }) => {
+  // Agregar las url en una const!!
+
+  const UrlAll = "http://localhost:8000/mascotas/all";
+  const UrlPerro = "http://localhost:8000/mascotas/category/perro";
+  const UrlGato = "http://localhost:8000/mascotas/category/gato";
+  const UrlRoedor = "http://localhost:8000/mascotas/category/roedor";
+  const UrlPajaro = "http://localhost:8000/mascotas/category/pajaro";
+  
   return (
     <>
       <Box>
         <InputRadio
           htmlForTodo="Todo"
-          value="http://localhost:8000/mascotas/all"
+          value={UrlAll}
           texto="Todo"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/all"}
+          checked={valueRadio === UrlAll}
         />
         <InputRadio
           htmlFor="Perro"
-          value="http://localhost:8000/mascotas/perro"
+          value={UrlPerro}
           texto="Perros"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/perro"}
+          checked={valueRadio === UrlPerro}
         />
         <InputRadio
           htmlFor="Gato"
-          value="http://localhost:8000/mascotas/gato"
+          value={UrlGato}
           texto="Gatos"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/gato"}
+          checked={valueRadio === UrlGato}
         />
         <InputRadio
           htmlFor="Roedor"
-          value="http://localhost:8000/mascotas/roedor"
+          value={UrlRoedor}
           texto="Roedores"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/roedor"}
+          checked={valueRadio === UrlRoedor}
         />
         <InputRadio
           htmlFor="Pajaro"
-          value="http://localhost:8000/mascotas/pajaro"
+          value={UrlPajaro}
           texto="Pajaros"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/pajaro"}
+          checked={valueRadio === UrlPajaro}
         />
       </Box>
     </>

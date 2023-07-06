@@ -35,6 +35,7 @@ const Imagen = styled.div`
   height: 270px;
   aspect-ratio: 10/9;
   border-radius: 5px;
+  background-color: #4b4b4b;
   img {
     object-fit: cover;
     height: 100%;
@@ -80,7 +81,9 @@ const Icono = styled.div`
     width: 100%;
   }
 `;
-const TarjetaID = ({data}) => {
+const TarjetaID = ({ data }) => {
+  const { raza, src, like, longevidad, tamaño, origen, historia } = data;
+
   const [toggleCorazon, setToggleCorazon] = useState(false);
 
   const corazonActivo = () => setToggleCorazon(true);
@@ -88,44 +91,43 @@ const TarjetaID = ({data}) => {
 
   return (
     <>
-        <Main>
-          <Box>
-            <Nombre>{data.raza}</Nombre>
-            <Imagen>
-              <img src={data.src} alt="Animal" />
-            </Imagen>
-            <DivMegusta>
-              <p>{data.like}</p>
-              {toggleCorazon ? (
-                <Icono onClick={corazonInactivo}>
-                  <img src="/icons/CorazonActivo.svg" alt="" />
-                </Icono>
-              ) : (
-                <Icono onClick={corazonActivo}>
-                  <img src="/icons/CorazonInactivo.svg" alt="" />
-                </Icono>
-              )}
-            </DivMegusta>
-            <Data_Box>
-              <Data>
-                <b>Promedio de vida</b>
-                <p>{data.longevidad}</p>
-              </Data>
-              <Data>
-                <b>Tamaño</b>
-                <p>{data.tamaño}</p>
-              </Data>
-              <Data>
-                <b>Origen</b>
-                <p>{data.origen} </p>
-              </Data>
-            </Data_Box>
-          </Box>
-          <Historia>
-            <p>{data.historia}</p>
-          </Historia>
-        </Main>
-    
+      <Main>
+        <Box>
+          <Nombre>{raza}</Nombre>
+          <Imagen>
+            <img src={src} alt="Animal" />
+          </Imagen>
+          <DivMegusta>
+            <p>{like}</p>
+            {toggleCorazon ? (
+              <Icono onClick={corazonInactivo}>
+                <img src="/icons/CorazonActivo.svg" alt="" />
+              </Icono>
+            ) : (
+              <Icono onClick={corazonActivo}>
+                <img src="/icons/CorazonInactivo.svg" alt="" />
+              </Icono>
+            )}
+          </DivMegusta>
+          <Data_Box>
+            <Data>
+              <b>Promedio de vida</b>
+              <p>{longevidad}</p>
+            </Data>
+            <Data>
+              <b>Tamaño</b>
+              <p>{tamaño}</p>
+            </Data>
+            <Data>
+              <b>Origen</b>
+              <p>{origen} </p>
+            </Data>
+          </Data_Box>
+        </Box>
+        <Historia>
+          <p>{historia}</p>
+        </Historia>
+      </Main>
     </>
   );
 };

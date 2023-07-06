@@ -20,27 +20,28 @@ const AnimalPage = () => {
   const id = useParams();
 
   useEffect(() => {
-    let urlConID = `http://localhost:8000/mascotas/single/${id.id}`;
-    axios
-      .get(urlConID)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        let urlConID = `http://localhost:8000/mascotas/single/${id.id}`;
+        console.log(urlConID);
+        const response = await axios.get(urlConID);
         setGetData(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error:", error);
-      });
+      }
+    };
+
+    fetchData();
   }, [id]);
 
-
+  console.log(getData);
 
   return (
     <>
-      {getData && getData.results && (
-        <Main>
-          <TarjetaID data={getData.results} />
-          <Comentarios data={getData.results} />
-        </Main>
-      )}
+      <Main>
+        <TarjetaID data={getData} />
+        <Comentarios data={getData} />
+      </Main>
     </>
   );
 };

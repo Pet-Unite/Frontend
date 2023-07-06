@@ -23,17 +23,23 @@ const MapDeTarjetas = ({ valueRadio }) => {
       .get(valueRadio)
       .then((response) => {
         setGetData(response.data);
-        console.log(response.data);
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      .catch(() => {});
   }, [valueRadio]);
+
+  const nombreBuscado = buscarPorNombre.toLowerCase(); // Obtener el nombre a buscar en minúsculas
+
+  const resultadosFiltrados = getData.filter((data) => {
+    const razaLowerCase = data.raza.toLowerCase(); // Convertir la raza a minúsculas
+    console.log(nombreBuscado)
+    return razaLowerCase.includes(nombreBuscado);
+  });
+  
 
   return (
     <>
       <Main>
-        {getData.map((item, key) => (
+        {resultadosFiltrados.map((item, key) => (
           <li key={key}>
             <Tarjeta
               raza={item.raza}

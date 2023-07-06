@@ -16,6 +16,7 @@ const Imagen = styled.div`
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
+  background-color: #4b4b4b;
   img {
     border-radius: 5px;
     object-fit: cover;
