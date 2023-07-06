@@ -16,7 +16,7 @@ const Main = styled.section`
 
 const InicioPage = () => {
   const [valueRadio, setValueRadio] = useState(
-    "http://localhost:8000/mascotas/"
+    "http://localhost:8000/mascotas/all"
   );
   const onChangeValueRadio = (e) => setValueRadio(e.target.value);
 

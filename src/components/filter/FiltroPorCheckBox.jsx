@@ -14,11 +14,11 @@ const FiltroPorCheckBox = ({ valueRadio, onChangeValueRadio }) => {
       <Box>
         <InputRadio
           htmlForTodo="Todo"
-          value="http://localhost:8000/mascotas/"
+          value="http://localhost:8000/mascotas/all"
           texto="Todo"
           name="Mascotas"
           onChange={onChangeValueRadio}
-          checked={valueRadio === "http://localhost:8000/mascotas/"}
+          checked={valueRadio === "http://localhost:8000/mascotas/all"}
         />
         <InputRadio
           htmlFor="Perro"

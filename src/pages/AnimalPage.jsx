@@ -20,7 +20,7 @@ const AnimalPage = () => {
   const id = useParams();
 
   useEffect(() => {
-    let urlConID = `http://localhost:8000/mascotas/${id.id}`;
+    let urlConID = `http://localhost:8000/mascotas/single/${id.id}`;
     axios
       .get(urlConID)
       .then((response) => {
@@ -30,6 +30,8 @@ const AnimalPage = () => {
         console.error("Error:", error);
       });
   }, [id]);
+
+
 
   return (
     <>

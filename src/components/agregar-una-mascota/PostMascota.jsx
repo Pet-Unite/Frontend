@@ -62,8 +62,10 @@ const PostMascota = () => {
 
     try {
       const response = axios.post("http://localhost:8000/mascotas/", mascota);
+      alert("El Animal se agrego!");
       console.log(response);
     } catch (error) {
+      alert("No se pudo agregar el animal");
       console.log(error);
     }
   };

@@ -82,7 +82,7 @@ const BuscadorSuperior = () => {
             <a href="/">Inicio</a>
 
             <a href="/agregar-mascota">Añadir</a>
-            
+
             {false ? (
               <Btn type="button" onClick={routeIngresar}>
                 Ingresar

@@ -46,8 +46,24 @@ const Registrarse = () => {
   const onSubmitCrearCuenta = (e) => {
     e.preventDefault();
 
+    // Configurar los datos a enviar en el cuerpo de la solicitud
+    const data = {
+      correo: correo,
+      contra: contraseña,
+    };
 
-  }
+    // Realizar la solicitud POST con Axios
+    axios
+      .post("http://localhost:8000/api/user/user/register", data)
+      .then((response) => {
+        // Aquí puedes manejar la respuesta exitosa si el servidor devuelve algo
+        console.log("Respuesta del servidor:", response.data);
+      })
+      .catch((error) => {
+        // Manejar errores de la solicitud o respuestas de error del servidor
+        console.error("Error al hacer la solicitud:", error);
+      });
+  };
 
   return (
     <>
@@ -65,7 +81,7 @@ const Registrarse = () => {
             <h1>Crear cuenta</h1>
             <Texto
               htmlFor="Nombre de usuario"
-              placeHolder="example@example.com"
+              placeHolder="Nuvato"
               value={nombre}
               onChange={onChangeNombre}
             />

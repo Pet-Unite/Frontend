@@ -8,7 +8,7 @@ const Usuario = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: 10px;
+  margin-left: 30px;
   position: relative;
 `;
 const Data = styled.div`
@@ -19,11 +19,11 @@ const Data = styled.div`
   gap: 2px;
 `;
 const Nombre = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   width: max-content;
 `;
 const Correo = styled.p`
-  font-size: 13px;
+  font-size: 12px;
   width: max-content;
   color: grey;
 `;
